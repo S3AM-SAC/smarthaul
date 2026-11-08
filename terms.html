@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-es="Términos y condiciones — SmartHaul" data-en="Terms and Conditions — SmartHaul">Términos y condiciones — SmartHaul</title>
+  <meta name="description" content="Términos y condiciones de SmartHaul, la aplicación de S3AM Perú para estimar el ciclo de acarreo, el esponjamiento y la flota de volquetes." data-es="Términos y condiciones de SmartHaul, la aplicación de S3AM Perú para estimar el ciclo de acarreo, el esponjamiento y la flota de volquetes." data-en="Terms and conditions for SmartHaul, the S3AM Perú application that estimates haulage cycles, swell and the truck fleet.">
+  <meta name="author" content="S3AM Perú">
+  <meta name="theme-color" content="#0B131C">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var theme = null;
+      var lang = null;
+      try { theme = localStorage.getItem("sh-theme"); } catch (e) {}
+      try { lang = localStorage.getItem("sh-lang"); } catch (e) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      if (lang !== "es" && lang !== "en") {
+        lang = (navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+      }
+      if (location.hash.indexOf("#en-") === 0) lang = "en";
+      if (location.hash.indexOf("#es-") === 0) lang = "es";
+      root.dataset.theme = theme;
+      root.lang = lang;
+      var title = document.querySelector("title");
+      if (title) {
+        var next = title.getAttribute("data-" + lang);
+        if (next) title.textContent = next;
+      }
+      document.querySelectorAll("meta[data-es]").forEach(function (el) {
+        var value = el.getAttribute("data-" + lang);
+        if (value) el.setAttribute("content", value);
+      });
+      var color = document.querySelector('meta[name="theme-color"]');
+      if (color) color.setAttribute("content", theme === "light" ? "#FAF8FF" : "#0B131C");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Sora:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">
+    <span class="es-only">Saltar al contenido</span>
+    <span class="en-only">Skip to content</span>
+  </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor"/>
+          <path d="M9 12h11" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M16.4 8.7 20.4 12 16.4 15.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23 20H12" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M15.6 16.7 11.6 20 15.6 23.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">SmartHaul</span>
+          <span class="brand-by">S3AM Perú</span>
+        </span>
+      </a>
+      <nav class="nav" data-label-es="Secciones" data-label-en="Sections" aria-label="Secciones">
+        <a href="index.html">
+          <span class="es-only">Inicio</span>
+          <span class="en-only">Home</span>
+        </a>
+        <a href="privacy.html">
+          <span class="es-only">Privacidad</span>
+          <span class="en-only">Privacy</span>
+        </a>
+        <a href="terms.html" aria-current="page">
+          <span class="es-only">Términos</span>
+          <span class="en-only">Terms</span>
+        </a>
+      </nav>
+      <div class="controls">
+        <div class="segment" role="group" data-label-es="Idioma" data-label-en="Language" aria-label="Idioma">
+          <button type="button" data-set-lang="es">ES</button>
+          <button type="button" data-set-lang="en">EN</button>
+        </div>
+        <div class="segment" role="group" data-label-es="Tema" data-label-en="Theme" aria-label="Tema">
+          <button type="button" data-set-theme="light" data-label-es="Tema claro" data-label-en="Light theme" aria-label="Tema claro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button type="button" data-set-theme="dark" data-label-es="Tema oscuro" data-label-en="Dark theme" aria-label="Tema oscuro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M15.5 3.8A8.2 8.2 0 1 0 20.2 15 6.4 6.4 0 0 1 15.5 3.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <div class="container">
+      <article class="doc">
+        <p class="doc-kicker">SmartHaul · S3AM Perú</p>
+        <h1>
+          <span class="es-only">Términos y condiciones</span>
+          <span class="en-only">Terms and Conditions</span>
+        </h1>
+        <p class="doc-meta">
+          <span class="es-only">Vigentes desde el 8 de noviembre de 2026</span>
+          <span class="en-only">Effective November 8, 2026</span>
+          <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>
+        </p>
+
+        <div class="prose es-only" lang="es">
+          <p>Estos términos se aplican a la aplicación móvil SmartHaul y a los servicios de cuenta y de cálculo relacionados que opera S3AM Perú (en conjunto, la «Aplicación»). S3AM Perú es el «Proveedor del servicio».</p>
+          <p>Al crear una cuenta o usar la Aplicación, usted acepta estos términos y la <a href="privacy.html">Política de privacidad</a>. Si no está de acuerdo, no use la Aplicación.</p>
+          <p>Estos términos rigen desde el 8 de noviembre de 2026. Contacto: <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+
+          <nav class="toc" aria-label="Contenido">
+            <a href="#es-que-hace">Qué hace SmartHaul</a>
+            <a href="#es-quien">Quién puede usarla</a>
+            <a href="#es-licencia">Licencia</a>
+            <a href="#es-contenido">Su contenido</a>
+            <a href="#es-precio">Precio y anuncios</a>
+            <a href="#es-uso-aceptable">Uso aceptable</a>
+            <a href="#es-internet">Internet, dispositivo y terceros</a>
+            <a href="#es-cierre">Cierre de la cuenta</a>
+            <a href="#es-responsabilidad">Responsabilidad</a>
+            <a href="#es-ley">Ley aplicable</a>
+            <a href="#es-cambios">Cambios</a>
+            <a href="#es-contacto">Contacto</a>
+          </nav>
+
+          <h2 id="es-que-hace">Qué hace SmartHaul</h2>
+          <p>SmartHaul estima el ciclo de acarreo, el esponjamiento del material y la flota de volquetes necesaria para equilibrar la pala y el transporte. El resultado depende de los valores que usted ingresa y de supuestos simplificados, entre ellos un turno fijo de 8 horas en esta versión. Son estimaciones de planificación. No sustituyen el criterio de un ingeniero colegiado, un levantamiento de campo ni las reglas de seguridad de la operación. Usted es responsable de cada decisión que tome con un resultado.</p>
+
+          <h2 id="es-quien">Quién puede usarla</h2>
+          <p>Debe tener al menos 18 años. La Aplicación no está dirigida a niños.</p>
+          <p>Debe indicar un correo real, su nombre y su fecha de nacimiento, y debe guardar su contraseña. Usted responde por la actividad que ocurra con su cuenta.</p>
+          <p>El acceso es una cuenta de S3AM. Si usa esa misma cuenta en otra aplicación de S3AM, estos términos regulan su uso de SmartHaul, y eliminar la cuenta aquí también puede quitarle el acceso a esas otras aplicaciones.</p>
+
+          <h2 id="es-licencia">Licencia</h2>
+          <p>Le concedemos una licencia personal, limitada, no exclusiva, intransferible y revocable para instalar y usar la Aplicación en sus dispositivos. Puede usarla para usted o para el trabajo interno de su organización.</p>
+          <p>No puede copiar la Aplicación, venderla, modificarla ni intentar extraer su código fuente, salvo que la ley lo permita de forma expresa. No puede usar el nombre o el logotipo de S3AM o de SmartHaul sin nuestro permiso por escrito.</p>
+
+          <h2 id="es-contenido">Su contenido</h2>
+          <p>Las simulaciones que guarda son privadas de su cuenta. La Aplicación no permite publicarlas a otros usuarios, y no tiene un muro público, comentarios ni mensajes entre usuarios. No escriba datos personales de otras personas en una simulación salvo que tenga un motivo válido y derecho a hacerlo.</p>
+          <p>Usted conserva sus derechos sobre los nombres de proyecto y el resto del texto que escribe. Nos da permiso para almacenar y tratar ese texto solo para operar la Aplicación, por ejemplo para mostrar su historial y recuperarlo cuando inicia sesión.</p>
+
+          <h2 id="es-precio">Precio y anuncios</h2>
+          <p>La Aplicación es gratuita. Muestra anuncios mediante Google AdMob: un banner en la calculadora y en el historial, y un intersticial después de un cálculo correcto. La pantalla de ajustes no muestra banner.</p>
+          <p>Si más adelante cobramos por una función, le diremos el precio antes de que pague. En la versión actual no hay ninguna compra de pago.</p>
+
+          <h2 id="es-uso-aceptable">Uso aceptable</h2>
+          <p>Usted se compromete a no:</p>
+          <ul>
+            <li>Incumplir la ley o estos términos</li>
+            <li>Intentar entrar en la cuenta de otra persona o en nuestros sistemas sin autorización</li>
+            <li>Sobrecargar el servicio, o buscar una vulnerabilidad, salvo un aviso de buena fe a <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a></li>
+            <li>Usar la Aplicación para engañar a alguien con un resultado de acarreo, presentando una estimación como un estudio certificado</li>
+          </ul>
+          <p>Podemos suspender o cerrar una cuenta que haga esto. Cuando la ley y las circunstancias lo permitan, le diremos por qué.</p>
+
+          <h2 id="es-internet">Internet, dispositivo y terceros</h2>
+          <p>El inicio de sesión, los catálogos y el historial guardado necesitan conexión a internet. Su operador móvil puede cobrarle esos datos. No respondemos por un resultado al que no pueda llegar porque el dispositivo no tiene conexión, no tiene batería o tiene el sistema operativo alterado.</p>
+          <p>La Aplicación usa:</p>
+          <ul>
+            <li><a href="https://developers.google.com/admob/terms" target="_blank" rel="noopener noreferrer">Google AdMob<span class="visually-hidden"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics para Firebase<span class="visually-hidden"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics<span class="visually-hidden"> (se abre en otra pestaña)</span></a></li>
+          </ul>
+          <p>Esos proveedores tienen sus propios términos. No respondemos por sus servicios.</p>
+
+          <h2 id="es-cierre">Cierre de la cuenta</h2>
+          <p>Puede eliminar su cuenta en la app. La eliminación borra su perfil y sus simulaciones guardadas, y no se puede deshacer. También puede pedírnoslo a <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+          <p>Podemos dejar de ofrecer la Aplicación. Si lo hacemos, avisaremos cuando sea razonable. Después de eso, la licencia termina y usted debe borrar la Aplicación de sus dispositivos.</p>
+
+          <h2 id="es-responsabilidad">Responsabilidad</h2>
+          <p>En la medida en que la ley lo permita, no respondemos por daños indirectos, lucro cesante, pérdida de datos ni una pérdida operativa que venga de confiar en una simulación. Un resultado puede ser incorrecto si los datos de entrada lo son o si el terreno no coincide con los supuestos del modelo.</p>
+          <p>No limitamos la responsabilidad por muerte o daño personal causado por negligencia, por fraude, ni por cualquier otra cosa que la ley no nos permita limitar.</p>
+          <p>Como la Aplicación es gratuita, nuestra responsabilidad total por un reclamo relacionado con ella se limita al mínimo que exija la ley aplicable. Nada en estos términos quita derechos que la norma de protección al consumidor le otorga y que no se pueden renunciar.</p>
+
+          <h2 id="es-ley">Ley aplicable</h2>
+          <p>Estos términos se rigen por las leyes de la República del Perú. Los juzgados de Lima son competentes, sin perjuicio del fuero que una norma imperativa de consumo le reserve.</p>
+
+          <h2 id="es-cambios">Cambios</h2>
+          <p>Podemos actualizar estos términos publicando la nueva versión en esta página y cambiando la fecha de entrada en vigor. Si un cambio es importante, también se lo avisaremos en la app o por correo cuando tengamos una forma práctica de hacerlo. Si sigue usando la Aplicación después de la nueva fecha, acepta los términos actualizados.</p>
+
+          <h2 id="es-contacto">Contacto</h2>
+          <p>S3AM Perú<br><a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a></p>
+        </div>
+
+        <div class="prose en-only" lang="en">
+          <p>These terms apply to the SmartHaul mobile application and the related account and calculation services operated by S3AM Perú (together, the "Application"). S3AM Perú is the "Service Provider".</p>
+          <p>By creating an account or using the Application, you agree to these terms and to the <a href="privacy.html">Privacy Policy</a>. If you do not agree, do not use the Application.</p>
+          <p>These terms are effective as of November 8, 2026. Contact: <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+
+          <nav class="toc" aria-label="Contents">
+            <a href="#en-what">What SmartHaul does</a>
+            <a href="#en-who">Who can use it</a>
+            <a href="#en-license">License</a>
+            <a href="#en-content">Your content</a>
+            <a href="#en-price">Price and ads</a>
+            <a href="#en-acceptable">Acceptable use</a>
+            <a href="#en-internet">Internet, device and third parties</a>
+            <a href="#en-closure">Account closure</a>
+            <a href="#en-liability">Liability</a>
+            <a href="#en-law">Governing law</a>
+            <a href="#en-changes">Changes</a>
+            <a href="#en-contact">Contact</a>
+          </nav>
+
+          <h2 id="en-what">What SmartHaul does</h2>
+          <p>SmartHaul estimates a haulage cycle, material swell and the truck fleet needed to balance a loader and the haul. Results depend on the values you enter and on simplified assumptions, including a fixed 8-hour shift in this version. They are planning estimates. They are not a substitute for the judgment of a qualified engineer, a site survey, or the safety rules of the operation. You are responsible for every decision you make with a result.</p>
+
+          <h2 id="en-who">Who can use it</h2>
+          <p>You must be at least 18 years old. The Application is not directed to children.</p>
+          <p>You must provide a real email address, your name and your date of birth, and you must keep your password to yourself. You are responsible for the activity that happens under your account.</p>
+          <p>The login is an S3AM account. If you use that same account in another S3AM application, these terms govern your use of SmartHaul, and deleting the account here can also remove your access to those other applications.</p>
+
+          <h2 id="en-license">License</h2>
+          <p>We grant you a personal, limited, non-exclusive, non-transferable and revocable license to install and use the Application on your devices. You may use it for yourself or for the internal work of your organization.</p>
+          <p>You may not copy the Application, sell it, modify it, or try to extract its source code, except where the law expressly allows that. You may not use the S3AM or SmartHaul name or logo without our written permission.</p>
+
+          <h2 id="en-content">Your content</h2>
+          <p>The simulations you save are private to your account. The Application does not let you publish them to other users, and it has no public feed, comments or user-to-user messages. Do not enter personal data of other people into a simulation unless you have a valid reason and the right to do so.</p>
+          <p>You keep your rights in the project names and other text you type. You give us permission to store and process that text only to operate the Application, for example to show your history and to restore it when you sign in.</p>
+
+          <h2 id="en-price">Price and ads</h2>
+          <p>The Application is free. It shows ads through Google AdMob: a banner on the calculator and the history, and an interstitial after a successful calculation. The settings screen does not show a banner.</p>
+          <p>If we later charge for a feature, we will tell you the price before you pay. Nothing in the current version is a paid purchase.</p>
+
+          <h2 id="en-acceptable">Acceptable use</h2>
+          <p>You agree not to:</p>
+          <ul>
+            <li>Break the law or these terms</li>
+            <li>Try to enter another person's account or our systems without authorization</li>
+            <li>Overload the service, or probe it for a vulnerability except through a good-faith report to <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a></li>
+            <li>Use the Application to mislead someone about a haulage result, presenting an estimate as a certified study</li>
+          </ul>
+          <p>We may suspend or close an account that does this. When the law and the circumstances allow it, we will tell you why.</p>
+
+          <h2 id="en-internet">Internet, device and third parties</h2>
+          <p>Sign-in, catalogs and saved history need an internet connection. Your mobile operator may charge you for that data. We are not responsible for a result you cannot reach because the device has no connection, no battery or an altered operating system.</p>
+          <p>The Application uses:</p>
+          <ul>
+            <li><a href="https://developers.google.com/admob/terms" target="_blank" rel="noopener noreferrer">Google AdMob<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          </ul>
+          <p>Those providers have their own terms. We are not responsible for their services.</p>
+
+          <h2 id="en-closure">Account closure</h2>
+          <p>You can delete your account in the app. Deletion removes your profile and your saved simulations, and it cannot be undone. You can also ask us at <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+          <p>We may stop offering the Application. If we do, we will give notice when it is reasonable to do so. After that, the license ends and you should delete the Application from your devices.</p>
+
+          <h2 id="en-liability">Liability</h2>
+          <p>To the extent the law allows, we are not liable for indirect damages, lost profits, lost data or an operational loss that comes from relying on a simulation. A result can be wrong if the inputs are wrong or if the site does not match the assumptions of the model.</p>
+          <p>We do not limit liability for death or personal injury caused by negligence, for fraud, or for anything else that the law does not allow us to limit.</p>
+          <p>Because the Application is free, our total liability for a claim relating to it is limited to the minimum amount the applicable law requires. Nothing in these terms removes rights that consumer-protection law gives you and that cannot be waived.</p>
+
+          <h2 id="en-law">Governing law</h2>
+          <p>These terms are governed by the laws of the Republic of Peru. The courts of Lima have jurisdiction, without prejudice to any forum that a mandatory consumer rule reserves to you.</p>
+
+          <h2 id="en-changes">Changes</h2>
+          <p>We may update these terms by posting the new version on this page and changing the effective date. If a change is significant, we will also notify you in the app or by email when we have a practical way to do so. If you keep using the Application after the new date, you accept the updated terms.</p>
+
+          <h2 id="en-contact">Contact</h2>
+          <p>S3AM Perú<br><a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a></p>
+        </div>
+
+        <aside class="related">
+          <p>
+            <span class="es-only">La política de privacidad explica qué datos se recogen y para qué se usan.</span>
+            <span class="en-only">The privacy policy explains what data is collected and how it is used.</span>
+          </p>
+          <a class="button button-secondary" href="privacy.html">
+            <span class="es-only">Política de privacidad</span>
+            <span class="en-only">Privacy policy</span>
+          </a>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">SmartHaul</div>
+          <p class="fine-print">
+            <span class="es-only">Aplicación de S3AM Perú.</span>
+            <span class="en-only">An application by S3AM Perú.</span>
+          </p>
+        </div>
+        <nav class="footer-links" data-label-es="Documentos" data-label-en="Documents" aria-label="Documentos">
+          <a href="privacy.html"><span class="es-only">Política de privacidad</span><span class="en-only">Privacy policy</span></a>
+          <a href="terms.html"><span class="es-only">Términos y condiciones</span><span class="en-only">Terms and conditions</span></a>
+          <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>
+        </nav>
+      </div>
+      <p class="copyright">
+        <span class="es-only">Textos vigentes desde el 8 de noviembre de 2026.</span>
+        <span class="en-only">Texts effective November 8, 2026.</span>
+        © 2026 S3AM Perú
+      </p>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+</body>
+</html>

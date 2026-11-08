@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-es="SmartHaul — Ciclo de acarreo y flota" data-en="SmartHaul — Haul cycle and fleet">SmartHaul — Ciclo de acarreo y flota</title>
+  <meta name="description" content="SmartHaul estima el ciclo de acarreo, el esponjamiento del material y la flota de volquetes para equilibrar la pala y el transporte. Política de privacidad y términos de S3AM Perú." data-es="SmartHaul estima el ciclo de acarreo, el esponjamiento del material y la flota de volquetes para equilibrar la pala y el transporte. Política de privacidad y términos de S3AM Perú." data-en="SmartHaul estimates the haulage cycle, material swell and the truck fleet needed to balance a loader and the haul. Privacy policy and terms from S3AM Perú.">
+  <meta name="author" content="S3AM Perú">
+  <meta name="theme-color" content="#0B131C">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var theme = null;
+      var lang = null;
+      try { theme = localStorage.getItem("sh-theme"); } catch (e) {}
+      try { lang = localStorage.getItem("sh-lang"); } catch (e) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      if (lang !== "es" && lang !== "en") {
+        lang = (navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+      }
+      if (location.hash.indexOf("#en-") === 0) lang = "en";
+      if (location.hash.indexOf("#es-") === 0) lang = "es";
+      root.dataset.theme = theme;
+      root.lang = lang;
+      var title = document.querySelector("title");
+      if (title) {
+        var next = title.getAttribute("data-" + lang);
+        if (next) title.textContent = next;
+      }
+      document.querySelectorAll("meta[data-es]").forEach(function (el) {
+        var value = el.getAttribute("data-" + lang);
+        if (value) el.setAttribute("content", value);
+      });
+      var color = document.querySelector('meta[name="theme-color"]');
+      if (color) color.setAttribute("content", theme === "light" ? "#FAF8FF" : "#0B131C");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Sora:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">
+    <span class="es-only">Saltar al contenido</span>
+    <span class="en-only">Skip to content</span>
+  </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor"/>
+          <path d="M9 12h11" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M16.4 8.7 20.4 12 16.4 15.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23 20H12" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M15.6 16.7 11.6 20 15.6 23.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">SmartHaul</span>
+          <span class="brand-by">S3AM Perú</span>
+        </span>
+      </a>
+      <nav class="nav" data-label-es="Secciones" data-label-en="Sections" aria-label="Secciones">
+        <a href="index.html" aria-current="page">
+          <span class="es-only">Inicio</span>
+          <span class="en-only">Home</span>
+        </a>
+        <a href="privacy.html">
+          <span class="es-only">Privacidad</span>
+          <span class="en-only">Privacy</span>
+        </a>
+        <a href="terms.html">
+          <span class="es-only">Términos</span>
+          <span class="en-only">Terms</span>
+        </a>
+      </nav>
+      <div class="controls">
+        <div class="segment" role="group" data-label-es="Idioma" data-label-en="Language" aria-label="Idioma">
+          <button type="button" data-set-lang="es">ES</button>
+          <button type="button" data-set-lang="en">EN</button>
+        </div>
+        <div class="segment" role="group" data-label-es="Tema" data-label-en="Theme" aria-label="Tema">
+          <button type="button" data-set-theme="light" data-label-es="Tema claro" data-label-en="Light theme" aria-label="Tema claro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button type="button" data-set-theme="dark" data-label-es="Tema oscuro" data-label-en="Dark theme" aria-label="Tema oscuro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M15.5 3.8A8.2 8.2 0 1 0 20.2 15 6.4 6.4 0 0 1 15.5 3.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <div class="container">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">
+              <span class="es-only">Ayuda de ingeniería</span>
+              <span class="en-only">Engineering aid</span>
+            </p>
+            <h1>
+              <span class="es-only">El ciclo, el esponjamiento y la flota, en una sola estimación.</span>
+              <span class="en-only">The cycle, the swell and the fleet, in one estimate.</span>
+            </h1>
+            <p class="lead">
+              <span class="es-only">SmartHaul estima el ciclo de acarreo, el esponjamiento del material y la flota de volquetes necesaria para equilibrar la pala y el transporte. El resultado depende de los valores que usted ingresa y de supuestos simplificados, entre ellos un turno fijo de 8 horas en esta versión. Es una ayuda de ingeniería. No es una red social y no publica su información a otros usuarios.</span>
+              <span class="en-only">SmartHaul estimates a haulage cycle, material swell and the truck fleet needed to balance a loader and the haul. Results depend on the values you enter and on simplified assumptions, including a fixed 8-hour shift in this version. It is an engineering aid. It is not a social network, and it does not publish your information to other users.</span>
+            </p>
+            <dl class="specs">
+              <div>
+                <dt><span class="es-only">Edad</span><span class="en-only">Age</span></dt>
+                <dd>18+</dd>
+              </div>
+              <div>
+                <dt><span class="es-only">Turno</span><span class="en-only">Shift</span></dt>
+                <dd>8 h</dd>
+              </div>
+              <div>
+                <dt><span class="es-only">Precio</span><span class="en-only">Price</span></dt>
+                <dd>
+                  <span class="es-only">Gratis con anuncios</span>
+                  <span class="en-only">Free with ads</span>
+                </dd>
+              </div>
+            </dl>
+            <p class="age-line">
+              <span class="es-only">Debe tener al menos 18 años. La Aplicación no está dirigida a niños.</span>
+              <span class="en-only">You must be at least 18 years old. The Application is not directed to children.</span>
+            </p>
+          </div>
+
+          <figure class="cycle-wrap">
+            <div class="cycle">
+              <div class="station load">
+                <strong><span class="es-only">Pala</span><span class="en-only">Loader</span></strong>
+                <span class="station-role"><span class="es-only">Carga</span><span class="en-only">Load</span></span>
+              </div>
+              <div class="lane lane-forward">
+                <span class="lane-label"><span class="es-only">Acarreo cargado</span><span class="en-only">Loaded haul</span></span>
+                <span class="track" aria-hidden="true"></span>
+              </div>
+              <div class="station dump">
+                <strong><span class="es-only">Descarga</span><span class="en-only">Dump</span></strong>
+                <span class="station-role"><span class="es-only">Fin del viaje</span><span class="en-only">Unload</span></span>
+              </div>
+              <div class="lane lane-return">
+                <span class="lane-label"><span class="es-only">Retorno vacío</span><span class="en-only">Empty return</span></span>
+                <span class="track" aria-hidden="true"></span>
+              </div>
+              <p class="cycle-note">
+                <span class="es-only">Supuesto de esta versión: turno fijo de 8 horas</span>
+                <span class="en-only">Assumption in this version: fixed 8-hour shift</span>
+              </p>
+            </div>
+            <figcaption>
+              <span class="es-only">Esquema del ciclo de acarreo. No es un resultado de la aplicación.</span>
+              <span class="en-only">Diagram of the haul cycle. It is not an application result.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="estimates-title">
+        <h2 id="estimates-title">
+          <span class="es-only">Qué estima</span>
+          <span class="en-only">What it estimates</span>
+        </h2>
+        <p class="section-lead">
+          <span class="es-only">Son estimaciones de planificación. El resultado sale de los datos de la operación y de los supuestos del modelo.</span>
+          <span class="en-only">They are planning estimates. The result comes from the operation's inputs and from the assumptions of the model.</span>
+        </p>
+        <div class="cards">
+          <article class="card">
+            <p class="index">01</p>
+            <h3><span class="es-only">Ciclo de acarreo</span><span class="en-only">Haul cycle</span></h3>
+            <p><span class="es-only">El ciclo de acarreo de la operación.</span><span class="en-only">The haulage cycle of the operation.</span></p>
+          </article>
+          <article class="card">
+            <p class="index">02</p>
+            <h3><span class="es-only">Esponjamiento</span><span class="en-only">Swell</span></h3>
+            <p><span class="es-only">El esponjamiento del material.</span><span class="en-only">The swell of the material.</span></p>
+          </article>
+          <article class="card">
+            <p class="index">03</p>
+            <h3><span class="es-only">Flota de volquetes</span><span class="en-only">Truck fleet</span></h3>
+            <p><span class="es-only">Los volquetes necesarios para equilibrar la pala y el transporte.</span><span class="en-only">The trucks needed to balance the loader and the haul.</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="stored-title">
+        <h2 id="stored-title">
+          <span class="es-only">Qué queda guardado</span>
+          <span class="en-only">What is stored</span>
+        </h2>
+        <div class="card data-card">
+          <p>
+            <span class="es-only">Cuando ejecuta o guarda una simulación, almacenamos los datos de entrada y el resultado:</span>
+            <span class="en-only">When you run or save a simulation we store the inputs and the result, including:</span>
+          </p>
+          <ul class="data-list">
+            <li><span class="es-only">Material</span><span class="en-only">Material</span></li>
+            <li><span class="es-only">Tipo de volquete</span><span class="en-only">Truck type</span></li>
+            <li><span class="es-only">Distancia</span><span class="en-only">Distance</span></li>
+            <li><span class="es-only">Velocidad cargado y vacío</span><span class="en-only">Loaded and unloaded speed</span></li>
+            <li><span class="es-only">Duración del turno</span><span class="en-only">Shift length</span></li>
+            <li><span class="es-only">Eficiencia</span><span class="en-only">Efficiency</span></li>
+            <li><span class="es-only">Rendimiento de la pala</span><span class="en-only">Loader performance</span></li>
+            <li class="wide"><span class="es-only">Nombre del proyecto, tramo y tarifas por hora, si usted los escribe</span><span class="en-only">Project name, section and hourly rates, if you enter them</span></li>
+          </ul>
+          <p class="keep">
+            <span class="es-only">Las simulaciones guardadas permanecen en su historial hasta que usted las borra o elimina la cuenta.</span>
+            <span class="en-only">Saved simulations stay in your history until you delete them or you delete the account.</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="version-title">
+        <h2 id="version-title">
+          <span class="es-only">Esta versión</span>
+          <span class="en-only">This version</span>
+        </h2>
+        <ul class="facts">
+          <li class="card">
+            <h3><span class="es-only">Precio y anuncios</span><span class="en-only">Price and ads</span></h3>
+            <p><span class="es-only">La Aplicación es gratuita. Muestra anuncios mediante Google AdMob: un banner en la calculadora y en el historial, y un intersticial después de un cálculo correcto, como máximo una vez cada dos minutos. La pantalla de ajustes no muestra banner. En la versión actual no hay ninguna compra de pago.</span><span class="en-only">The Application is free. It shows Google AdMob ads: a banner on the calculator and the history, and an interstitial after a successful calculation, at most once every two minutes. The settings screen does not show a banner. Nothing in the current version is a paid purchase.</span></p>
+          </li>
+          <li class="card">
+            <h3><span class="es-only">Historial privado</span><span class="en-only">Private history</span></h3>
+            <p><span class="es-only">Las simulaciones que guarda son privadas de su cuenta. La Aplicación no permite publicarlas a otros usuarios, y no tiene un muro público, comentarios ni mensajes entre usuarios.</span><span class="en-only">The simulations you save are private to your account. The Application does not let you publish them to other users, and it has no public feed, comments or user-to-user messages.</span></p>
+          </li>
+          <li class="card">
+            <h3><span class="es-only">Cuenta S3AM</span><span class="en-only">S3AM account</span></h3>
+            <p><span class="es-only">Su acceso es una cuenta de S3AM. Si usa esa misma cuenta en otra aplicación de S3AM, eliminar la cuenta desde SmartHaul también puede quitarle el acceso a esas aplicaciones y a los datos vinculados a esa cuenta.</span><span class="en-only">Your login is an S3AM account. If you use that same account in another S3AM application, deleting the account in SmartHaul can also remove access to those applications and the data tied to that account.</span></p>
+          </li>
+          <li class="card">
+            <h3><span class="es-only">Internet</span><span class="en-only">Internet</span></h3>
+            <p><span class="es-only">El inicio de sesión, los catálogos y el historial guardado necesitan conexión a internet. Su operador móvil puede cobrarle esos datos.</span><span class="en-only">Sign-in, catalogs and saved history need an internet connection. Your mobile operator may charge you for that data.</span></p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="limit-title">
+        <h2 id="limit-title">
+          <span class="es-only">Límite de la estimación</span>
+          <span class="en-only">Limit of the estimate</span>
+        </h2>
+        <div class="notice">
+          <p>
+            <span class="es-only">Son estimaciones de planificación. No sustituyen el criterio de un ingeniero colegiado, un levantamiento de campo ni las reglas de seguridad de la operación. Usted es responsable de cada decisión que tome con un resultado.</span>
+            <span class="en-only">They are planning estimates. They are not a substitute for the judgment of a qualified engineer, a site survey, or the safety rules of the operation. You are responsible for every decision you make with a result.</span>
+          </p>
+          <p>
+            <span class="es-only">El texto completo está en los <a href="terms.html">términos y condiciones</a> y en la <a href="privacy.html">política de privacidad</a>.</span>
+            <span class="en-only">The full text is in the <a href="terms.html">terms and conditions</a> and in the <a href="privacy.html">privacy policy</a>.</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="legal-title">
+        <div class="card cta">
+          <div>
+            <h2 id="legal-title">
+              <span class="es-only">Política y términos</span>
+              <span class="en-only">Policy and terms</span>
+            </h2>
+            <p>
+              <span class="es-only">Puede leer el texto vigente antes de crear una cuenta. La política de privacidad es la dirección pública para la ficha de Google Play. Ambos documentos están en español y en inglés.</span>
+              <span class="en-only">You can read the current text before creating an account. The privacy policy is the public address for the Google Play listing. Both documents are in Spanish and English.</span>
+            </p>
+          </div>
+          <div class="actions">
+            <a class="button" href="privacy.html">
+              <span class="es-only">Política de privacidad</span>
+              <span class="en-only">Privacy policy</span>
+            </a>
+            <a class="button button-secondary" href="terms.html">
+              <span class="es-only">Términos y condiciones</span>
+              <span class="en-only">Terms and conditions</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">SmartHaul</div>
+          <p class="fine-print">
+            <span class="es-only">Aplicación de S3AM Perú.</span>
+            <span class="en-only">An application by S3AM Perú.</span>
+          </p>
+        </div>
+        <nav class="footer-links" data-label-es="Documentos" data-label-en="Documents" aria-label="Documentos">
+          <a href="privacy.html"><span class="es-only">Política de privacidad</span><span class="en-only">Privacy policy</span></a>
+          <a href="terms.html"><span class="es-only">Términos y condiciones</span><span class="en-only">Terms and conditions</span></a>
+          <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>
+        </nav>
+      </div>
+      <p class="copyright">
+        <span class="es-only">Textos vigentes desde el 8 de noviembre de 2026.</span>
+        <span class="en-only">Texts effective November 8, 2026.</span>
+        © 2026 S3AM Perú
+      </p>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+</body>
+</html>

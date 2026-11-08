@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-es="Política de privacidad — SmartHaul" data-en="Privacy Policy — SmartHaul">Política de privacidad — SmartHaul</title>
+  <meta name="description" content="Política de privacidad de SmartHaul, la aplicación de S3AM Perú para estimar el ciclo de acarreo, el esponjamiento y la flota de volquetes." data-es="Política de privacidad de SmartHaul, la aplicación de S3AM Perú para estimar el ciclo de acarreo, el esponjamiento y la flota de volquetes." data-en="Privacy policy for SmartHaul, the S3AM Perú application that estimates haulage cycles, swell and the truck fleet.">
+  <meta name="author" content="S3AM Perú">
+  <meta name="theme-color" content="#0B131C">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var theme = null;
+      var lang = null;
+      try { theme = localStorage.getItem("sh-theme"); } catch (e) {}
+      try { lang = localStorage.getItem("sh-lang"); } catch (e) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      if (lang !== "es" && lang !== "en") {
+        lang = (navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+      }
+      if (location.hash.indexOf("#en-") === 0) lang = "en";
+      if (location.hash.indexOf("#es-") === 0) lang = "es";
+      root.dataset.theme = theme;
+      root.lang = lang;
+      var title = document.querySelector("title");
+      if (title) {
+        var next = title.getAttribute("data-" + lang);
+        if (next) title.textContent = next;
+      }
+      document.querySelectorAll("meta[data-es]").forEach(function (el) {
+        var value = el.getAttribute("data-" + lang);
+        if (value) el.setAttribute("content", value);
+      });
+      var color = document.querySelector('meta[name="theme-color"]');
+      if (color) color.setAttribute("content", theme === "light" ? "#FAF8FF" : "#0B131C");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Sora:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">
+    <span class="es-only">Saltar al contenido</span>
+    <span class="en-only">Skip to content</span>
+  </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor"/>
+          <path d="M9 12h11" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M16.4 8.7 20.4 12 16.4 15.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23 20H12" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M15.6 16.7 11.6 20 15.6 23.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">SmartHaul</span>
+          <span class="brand-by">S3AM Perú</span>
+        </span>
+      </a>
+      <nav class="nav" data-label-es="Secciones" data-label-en="Sections" aria-label="Secciones">
+        <a href="index.html">
+          <span class="es-only">Inicio</span>
+          <span class="en-only">Home</span>
+        </a>
+        <a href="privacy.html" aria-current="page">
+          <span class="es-only">Privacidad</span>
+          <span class="en-only">Privacy</span>
+        </a>
+        <a href="terms.html">
+          <span class="es-only">Términos</span>
+          <span class="en-only">Terms</span>
+        </a>
+      </nav>
+      <div class="controls">
+        <div class="segment" role="group" data-label-es="Idioma" data-label-en="Language" aria-label="Idioma">
+          <button type="button" data-set-lang="es">ES</button>
+          <button type="button" data-set-lang="en">EN</button>
+        </div>
+        <div class="segment" role="group" data-label-es="Tema" data-label-en="Theme" aria-label="Tema">
+          <button type="button" data-set-theme="light" data-label-es="Tema claro" data-label-en="Light theme" aria-label="Tema claro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button type="button" data-set-theme="dark" data-label-es="Tema oscuro" data-label-en="Dark theme" aria-label="Tema oscuro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M15.5 3.8A8.2 8.2 0 1 0 20.2 15 6.4 6.4 0 0 1 15.5 3.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <div class="container">
+      <article class="doc">
+        <p class="doc-kicker">SmartHaul · S3AM Perú</p>
+        <h1>
+          <span class="es-only">Política de privacidad</span>
+          <span class="en-only">Privacy Policy</span>
+        </h1>
+        <p class="doc-meta">
+          <span class="es-only">Vigente desde el 8 de noviembre de 2026</span>
+          <span class="en-only">Effective November 8, 2026</span>
+          <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>
+        </p>
+
+        <div class="prose es-only" lang="es">
+          <p>Esta política se aplica a la aplicación móvil SmartHaul y a los servicios de cuenta y de cálculo relacionados que opera S3AM Perú (en conjunto, la «Aplicación»). S3AM Perú es el «Proveedor del servicio».</p>
+          <p>SmartHaul estima el ciclo de acarreo, el esponjamiento y la flota de volquetes necesaria para equilibrar la pala y el transporte. Es una ayuda de ingeniería. No es una red social y no publica su información a otros usuarios.</p>
+          <p>Esta política rige desde el 8 de noviembre de 2026. Contacto: <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+
+          <nav class="toc" aria-label="Contenido">
+            <a href="#es-informacion">Información que usted nos da</a>
+            <a href="#es-automatica">Información que se recoge de forma automática</a>
+            <a href="#es-uso">Para qué usamos esta información</a>
+            <a href="#es-anuncios">Anuncios, analíticas y fallos</a>
+            <a href="#es-conservacion">Cuánto tiempo la conservamos</a>
+            <a href="#es-derechos">Sus derechos</a>
+            <a href="#es-menores">Menores</a>
+            <a href="#es-seguridad">Seguridad</a>
+            <a href="#es-cambios">Cambios</a>
+            <a href="#es-contacto">Contacto</a>
+          </nav>
+
+          <h2 id="es-informacion">Información que usted nos da</h2>
+          <p>Para crear y usar una cuenta nos da:</p>
+          <ul>
+            <li>Correo electrónico</li>
+            <li>Contraseña</li>
+            <li>Nombre y apellido</li>
+            <li>Fecha de nacimiento</li>
+          </ul>
+          <p>La recuperación de contraseña usa su correo, nombre, apellido y fecha de nacimiento para comprobar que la cuenta es suya, y después le permite elegir una contraseña nueva. Guardamos la contraseña de forma protegida. No le pedimos que envíe la contraseña por correo.</p>
+          <p>Cuando ejecuta o guarda una simulación, almacenamos los datos de entrada y el resultado: material, tipo de volquete, distancia, velocidad cargado y vacío, duración del turno, eficiencia, rendimiento de la pala y, si usted los escribe, nombre del proyecto, tramo y tarifas por hora. Las simulaciones guardadas permanecen en su historial hasta que usted las borra o elimina la cuenta.</p>
+          <p>Su acceso es una cuenta de S3AM. Si usa esa misma cuenta en otra aplicación de S3AM, eliminar la cuenta desde SmartHaul también puede quitarle el acceso a esas aplicaciones y a los datos vinculados a esa cuenta.</p>
+
+          <h2 id="es-automatica">Información que se recoge de forma automática</h2>
+          <p>Cuando usa la Aplicación, nosotros y los proveedores indicados más abajo podemos tratar:</p>
+          <ul>
+            <li>Dirección IP</li>
+            <li>Modelo del dispositivo, sistema operativo y versión de la aplicación</li>
+            <li>Identificador de publicidad, para mostrar y medir anuncios</li>
+            <li>Pantallas y acciones dentro de la app, como abrir la calculadora o guardar un resultado</li>
+            <li>Diagnóstico de fallos: el error, el estado del dispositivo y el rastro técnico</li>
+          </ul>
+          <p>En el dispositivo se guardan los tokens de sesión y una copia de su perfil para que pueda seguir con la sesión abierta. Desinstalar la app borra esa copia local. No borra la cuenta en nuestros servidores.</p>
+          <p>La Aplicación no usa cookies de navegador. La publicidad y las analíticas dependen de los SDK móviles nombrados en esta política.</p>
+
+          <h2 id="es-uso">Para qué usamos esta información</h2>
+          <p>La usamos para:</p>
+          <ul>
+            <li>Crear su cuenta, mantener la sesión y recuperar la contraseña</li>
+            <li>Ejecutar simulaciones y mostrar su historial</li>
+            <li>Mostrar anuncios y saber si se entregaron</li>
+            <li>Medir el uso de la Aplicación y corregir fallos</li>
+            <li>Proteger el servicio frente a abusos y cumplir la ley</li>
+          </ul>
+          <p>No vendemos su información personal. No enviamos mensajes comerciales. No mostramos sus cálculos a otros usuarios.</p>
+
+          <h2 id="es-anuncios">Anuncios, analíticas y fallos</h2>
+          <p>La Aplicación muestra anuncios de Google AdMob: un banner en la calculadora y en el historial, y un intersticial después de un cálculo correcto, como máximo una vez cada dos minutos. En Ajustes no hay banner. Google puede usar el identificador de publicidad, la dirección IP y datos del dispositivo para entregar y medir esos anuncios, incluidos anuncios según su actividad, de acuerdo con la configuración de su teléfono. Usted puede restablecer o limitar el identificador de publicidad en los ajustes del dispositivo.</p>
+          <p>La Aplicación usa:</p>
+          <ul>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google AdMob<span class="visually-hidden"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics para Firebase<span class="visually-hidden"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Crashlytics<span class="visually-hidden"> (se abre en otra pestaña)</span></a></li>
+          </ul>
+          <p>Esos servicios tratan datos según sus propias políticas. Analytics nos indica qué partes de la app se usan. Crashlytics envía un informe cuando la app se cierra de forma inesperada. Usamos ambos para operar y mejorar SmartHaul.</p>
+          <p>Nuestra API está alojada en un proveedor en la nube. Ese proveedor, Google AdMob y Firebase pueden tratar datos fuera del Perú, incluso en Estados Unidos.</p>
+
+          <h2 id="es-conservacion">Cuánto tiempo la conservamos</h2>
+          <p>Los datos de la cuenta y las simulaciones guardadas se conservan mientras la cuenta exista. Si elimina la cuenta en la app, o nos lo pide por correo, borramos el perfil y el historial de cálculos de los sistemas activos. Las copias de seguridad y los registros de seguridad pueden permanecer un tiempo limitado y después se sobrescriben.</p>
+          <p>Los datos de analíticas y de fallos siguen los plazos de conservación de Firebase. Los datos de anuncios siguen los de Google. Podemos conservar un registro más tiempo cuando la ley lo exija, por ejemplo para responder un reclamo.</p>
+
+          <h2 id="es-derechos">Sus derechos</h2>
+          <p>Usted puede ver su perfil en la app, cambiar la contraseña, borrar una simulación guardada y eliminar la cuenta. También puede escribir a <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a> para acceder, rectificar o eliminar sus datos personales, o para preguntar por esta política. Podemos pedirle que confirme que la cuenta es suya antes de actuar.</p>
+          <p>Conforme a la Ley N.° 29733, Ley de Protección de Datos Personales, usted puede solicitar acceso, rectificación, cancelación y oposición. Si una ley de su país le reconoce derechos parecidos, puede ejercerlos por el mismo correo.</p>
+          <p>No vendemos información personal. Si una ley trata la publicidad personalizada como una «venta» o una «comunicación», usted puede limitarla desde los ajustes de publicidad del dispositivo y puede escribirnos a <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+
+          <h2 id="es-menores">Menores</h2>
+          <p>SmartHaul es una herramienta profesional para personas de al menos 18 años. No recogemos a sabiendas información personal de niños. Si cree que un niño nos dio información personal, escriba a <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a> y la eliminaremos.</p>
+
+          <h2 id="es-seguridad">Seguridad</h2>
+          <p>La conexión con nuestra API usa HTTPS. El acceso a los sistemas de producción está limitado a quienes operan el servicio. Ningún método de transmisión o almacenamiento es completamente seguro.</p>
+          <p>Si un incidente de seguridad afecta sus datos personales, se lo comunicaremos cuando la ley aplicable lo exija.</p>
+
+          <h2 id="es-cambios">Cambios</h2>
+          <p>Publicaremos los cambios en esta página y actualizaremos la fecha de entrada en vigor. Si un cambio es importante, también se lo avisaremos en la app o por correo cuando tengamos una forma práctica de hacerlo.</p>
+
+          <h2 id="es-contacto">Contacto</h2>
+          <p>S3AM Perú<br><a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a></p>
+        </div>
+
+        <div class="prose en-only" lang="en">
+          <p>This privacy policy applies to the SmartHaul mobile application and the related account and calculation services operated by S3AM Perú (together, the "Application"). S3AM Perú is the "Service Provider".</p>
+          <p>SmartHaul estimates haulage cycles, swell and the truck fleet needed to balance a loader and the haul. It is an engineering aid. It is not a social network, and it does not publish your information to other users.</p>
+          <p>This policy is effective as of November 8, 2026. Contact: <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+
+          <nav class="toc" aria-label="Contents">
+            <a href="#en-information">Information you give us</a>
+            <a href="#en-automatic">Information collected automatically</a>
+            <a href="#en-use">How we use this information</a>
+            <a href="#en-ads">Ads, analytics and crashes</a>
+            <a href="#en-retention">How long we keep it</a>
+            <a href="#en-rights">Your rights</a>
+            <a href="#en-children">Children</a>
+            <a href="#en-security">Security</a>
+            <a href="#en-changes">Changes</a>
+            <a href="#en-contact">Contact</a>
+          </nav>
+
+          <h2 id="en-information">Information you give us</h2>
+          <p>To create and use an account you provide:</p>
+          <ul>
+            <li>Email address</li>
+            <li>Password</li>
+            <li>First name and last name</li>
+            <li>Date of birth</li>
+          </ul>
+          <p>Password recovery uses your email, name, last name and date of birth to confirm that the account is yours, and then lets you set a new password. We store passwords in a protected form. We do not ask you to send a password by email.</p>
+          <p>When you run or save a simulation we store the inputs and the result, including material, truck type, distance, loaded and unloaded speed, shift length, efficiency, loader performance and, if you enter them, project name, section and hourly rates. Saved simulations stay in your history until you delete them or you delete the account.</p>
+          <p>Your login is an S3AM account. If you use that same account in another S3AM application, deleting the account in SmartHaul can also remove access to those applications and the data tied to that account.</p>
+
+          <h2 id="en-automatic">Information collected automatically</h2>
+          <p>When you use the Application, we and the providers listed below may process:</p>
+          <ul>
+            <li>IP address</li>
+            <li>Device model, operating system and app version</li>
+            <li>Advertising identifier, used to deliver and measure ads</li>
+            <li>Screens and actions inside the app, such as opening the calculator or saving a result</li>
+            <li>Crash diagnostics, such as the error, the device state and a technical stack trace</li>
+          </ul>
+          <p>Session tokens and a copy of your profile are stored on the device so you can stay signed in. Uninstalling the app removes that local copy. It does not delete the account on our servers.</p>
+          <p>The Application does not use browser cookies. Advertising and analytics rely on the mobile SDKs named in this policy.</p>
+
+          <h2 id="en-use">How we use this information</h2>
+          <p>We use it to:</p>
+          <ul>
+            <li>Create your account, keep you signed in and recover your password</li>
+            <li>Run simulations and show your history</li>
+            <li>Show ads and understand whether they are delivered</li>
+            <li>Measure how the Application is used and fix crashes</li>
+            <li>Protect the service against abuse and comply with the law</li>
+          </ul>
+          <p>We do not sell your personal information. We do not send marketing messages. We do not show your calculations to other users.</p>
+
+          <h2 id="en-ads">Ads, analytics and crashes</h2>
+          <p>The Application shows Google AdMob ads: a banner on the calculator and the history, and an interstitial after a successful calculation, at most once every two minutes. There is no ad on the settings screen. Google may use the advertising identifier, IP address and device data to serve and measure those ads, including ads based on your activity, according to your device settings. You can reset or limit the advertising identifier in the settings of your phone.</p>
+          <p>The Application uses:</p>
+          <ul>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google AdMob<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Crashlytics<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          </ul>
+          <p>Those services process data under their own policies. Analytics tells us which parts of the app are used. Crashlytics sends a report when the app closes unexpectedly. We use both to operate and improve SmartHaul.</p>
+          <p>Our API is hosted by a cloud provider. That provider, Google AdMob and Firebase may process data outside Peru, including in the United States.</p>
+
+          <h2 id="en-retention">How long we keep it</h2>
+          <p>Account data and saved simulations are kept while the account exists. If you delete the account in the app, or you ask us by email, we delete the profile and the calculation history from the active systems. Backups and security logs may remain for a limited time and are then overwritten.</p>
+          <p>Analytics and crash data follow the retention periods of Firebase. Ad data follows Google's retention. We may keep a record longer when the law requires it, for example to answer a legal claim.</p>
+
+          <h2 id="en-rights">Your rights</h2>
+          <p>You can see your profile in the app, correct your password, delete a saved simulation and delete the account. You can also email <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a> to access, correct or delete your personal data, or to ask a question about this policy. We may ask you to confirm that you own the account before we act.</p>
+          <p>Under Peru's Personal Data Protection Law (Ley N.° 29733) you may request access, correction, cancellation and opposition. If a law in your country gives you similar rights, you may exercise them through the same email.</p>
+          <p>We do not sell personal information. If a law treats personalized advertising as a "sale" or "sharing", you can limit it from your device's advertising settings and you can write to us at <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>.</p>
+
+          <h2 id="en-children">Children</h2>
+          <p>SmartHaul is a professional tool for people who are at least 18 years old. We do not knowingly collect personal information from children. If you believe a child gave us personal information, write to <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a> and we will delete it.</p>
+
+          <h2 id="en-security">Security</h2>
+          <p>The connection to our API uses HTTPS. Access to production systems is limited to the people who operate the service. No method of transmission or storage is completely secure.</p>
+          <p>If a security incident affects your personal data, we will notify you when the applicable law requires it.</p>
+
+          <h2 id="en-changes">Changes</h2>
+          <p>We will post changes on this page and update the effective date. If a change is significant, we will also notify you in the app or by email when we have a practical way to do so.</p>
+
+          <h2 id="en-contact">Contact</h2>
+          <p>S3AM Perú<br><a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a></p>
+        </div>
+
+        <aside class="related">
+          <p>
+            <span class="es-only">También puede leer los términos que acepta al crear una cuenta o usar la aplicación.</span>
+            <span class="en-only">You can also read the terms you accept by creating an account or using the application.</span>
+          </p>
+          <a class="button button-secondary" href="terms.html">
+            <span class="es-only">Términos y condiciones</span>
+            <span class="en-only">Terms and conditions</span>
+          </a>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">SmartHaul</div>
+          <p class="fine-print">
+            <span class="es-only">Aplicación de S3AM Perú.</span>
+            <span class="en-only">An application by S3AM Perú.</span>
+          </p>
+        </div>
+        <nav class="footer-links" data-label-es="Documentos" data-label-en="Documents" aria-label="Documentos">
+          <a href="privacy.html"><span class="es-only">Política de privacidad</span><span class="en-only">Privacy policy</span></a>
+          <a href="terms.html"><span class="es-only">Términos y condiciones</span><span class="en-only">Terms and conditions</span></a>
+          <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>
+        </nav>
+      </div>
+      <p class="copyright">
+        <span class="es-only">Textos vigentes desde el 8 de noviembre de 2026.</span>
+        <span class="en-only">Texts effective November 8, 2026.</span>
+        © 2026 S3AM Perú
+      </p>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+</body>
+</html>
