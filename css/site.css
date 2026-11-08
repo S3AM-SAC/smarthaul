@@ -710,9 +710,27 @@ html[data-theme="light"] [data-set-theme="light"] {
   transform: translateY(0.05em);
 }
 
-.prose ul {
+.prose ul,
+.prose ol {
   margin: 0.8rem 0 1rem;
   padding-left: 1.2rem;
+}
+
+.prose ol.steps {
+  margin: 1rem 0 1.25rem;
+  padding: 18px 18px 18px 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+}
+
+.prose ol.steps li + li {
+  margin-top: 0.75rem;
+}
+
+.prose ol.steps li::marker {
+  font-family: "Sora", "Avenir Next", sans-serif;
+  font-weight: 700;
 }
 
 .prose li + li {

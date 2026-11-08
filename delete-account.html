@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-es="Eliminar la cuenta — SmartHaul" data-en="Delete your account — SmartHaul">Eliminar la cuenta — SmartHaul</title>
+  <meta name="description" content="Cómo solicitar la eliminación de la cuenta de SmartHaul y de los datos asociados. Aplicación de S3AM Perú." data-es="Cómo solicitar la eliminación de la cuenta de SmartHaul y de los datos asociados. Aplicación de S3AM Perú." data-en="How to request deletion of your SmartHaul account and the data associated with it. An application by S3AM Perú.">
+  <meta name="author" content="S3AM Perú">
+  <meta name="theme-color" content="#0B131C">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var theme = null;
+      var lang = null;
+      try { theme = localStorage.getItem("sh-theme"); } catch (e) {}
+      try { lang = localStorage.getItem("sh-lang"); } catch (e) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      }
+      if (lang !== "es" && lang !== "en") {
+        lang = (navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+      }
+      if (location.hash.indexOf("#en-") === 0) lang = "en";
+      if (location.hash.indexOf("#es-") === 0) lang = "es";
+      root.dataset.theme = theme;
+      root.lang = lang;
+      var title = document.querySelector("title");
+      if (title) {
+        var next = title.getAttribute("data-" + lang);
+        if (next) title.textContent = next;
+      }
+      document.querySelectorAll("meta[data-es]").forEach(function (el) {
+        var value = el.getAttribute("data-" + lang);
+        if (value) el.setAttribute("content", value);
+      });
+      var color = document.querySelector('meta[name="theme-color"]');
+      if (color) color.setAttribute("content", theme === "light" ? "#FAF8FF" : "#0B131C");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Sora:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">
+    <span class="es-only">Saltar al contenido</span>
+    <span class="en-only">Skip to content</span>
+  </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="currentColor"/>
+          <path d="M9 12h11" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M16.4 8.7 20.4 12 16.4 15.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23 20H12" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M15.6 16.7 11.6 20 15.6 23.3" fill="none" stroke="var(--on-button)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">SmartHaul</span>
+          <span class="brand-by">S3AM Perú</span>
+        </span>
+      </a>
+      <nav class="nav" data-label-es="Secciones" data-label-en="Sections" aria-label="Secciones">
+        <a href="index.html">
+          <span class="es-only">Inicio</span>
+          <span class="en-only">Home</span>
+        </a>
+        <a href="privacy.html">
+          <span class="es-only">Privacidad</span>
+          <span class="en-only">Privacy</span>
+        </a>
+        <a href="terms.html">
+          <span class="es-only">Términos</span>
+          <span class="en-only">Terms</span>
+        </a>
+        <a href="delete-account.html" aria-current="page">
+          <span class="es-only">Borrar cuenta</span>
+          <span class="en-only">Delete account</span>
+        </a>
+        <a href="delete-data.html">
+          <span class="es-only">Borrar datos</span>
+          <span class="en-only">Delete data</span>
+        </a>
+      </nav>
+      <div class="controls">
+        <div class="segment" role="group" data-label-es="Idioma" data-label-en="Language" aria-label="Idioma">
+          <button type="button" data-set-lang="es">ES</button>
+          <button type="button" data-set-lang="en">EN</button>
+        </div>
+        <div class="segment" role="group" data-label-es="Tema" data-label-en="Theme" aria-label="Tema">
+          <button type="button" data-set-theme="light" data-label-es="Tema claro" data-label-en="Light theme" aria-label="Tema claro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M6 6l1.6 1.6M16.4 16.4 18 18M18 6l-1.6 1.6M7.6 16.4 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button type="button" data-set-theme="dark" data-label-es="Tema oscuro" data-label-en="Dark theme" aria-label="Tema oscuro">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M15.5 3.8A8.2 8.2 0 1 0 20.2 15 6.4 6.4 0 0 1 15.5 3.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <div class="container">
+      <article class="doc">
+        <p class="doc-kicker">SmartHaul · S3AM Perú</p>
+        <h1>
+          <span class="es-only">Eliminar la cuenta de SmartHaul</span>
+          <span class="en-only">Delete your SmartHaul account</span>
+        </h1>
+        <p class="doc-meta">
+          <span class="es-only">Vigente desde el 8 de noviembre de 2026</span>
+          <span class="en-only">Effective November 8, 2026</span>
+          <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>
+        </p>
+
+        <div class="prose es-only" lang="es">
+          <p>Esta página explica cómo solicitar que S3AM Perú elimine su cuenta de SmartHaul y los datos asociados. La eliminación no se puede deshacer.</p>
+
+          <h2 id="es-pasos">Pasos en la aplicación</h2>
+          <ol class="steps">
+            <li>Abra SmartHaul e inicie sesión con su correo y su contraseña.</li>
+            <li>Vaya a la pestaña Ajustes.</li>
+            <li>Pulse Eliminar cuenta.</li>
+            <li>Lea el aviso y confirme. La cuenta se elimina en ese momento.</li>
+          </ol>
+
+          <h2 id="es-correo">Si no puede entrar en la aplicación</h2>
+          <p>Escriba a <a href="mailto:s3amsac@gmail.com?subject=Eliminar%20cuenta%20de%20SmartHaul">s3amsac@gmail.com</a> desde el correo de la cuenta. En el asunto ponga «Eliminar cuenta de SmartHaul» e indique el correo con el que se registró. S3AM Perú puede pedirle nombre, apellido y fecha de nacimiento para comprobar que la cuenta es suya antes de borrarla.</p>
+
+          <h2 id="es-borra">Datos que se borran</h2>
+          <ul>
+            <li>El perfil: correo, nombre, apellido y fecha de nacimiento.</li>
+            <li>La contraseña y la sesión guardada en el dispositivo.</li>
+            <li>El historial de simulaciones: material, tipo de volquete, distancia, velocidades, turno, eficiencia, rendimiento de la pala y, si usted los escribió, nombre del proyecto, tramo y tarifas por hora, junto con el resultado.</li>
+          </ul>
+          <p>Su acceso es una cuenta de S3AM. Si usa esa misma cuenta en otra aplicación de S3AM, eliminarla desde SmartHaul también puede quitarle el acceso a esas aplicaciones y a los datos vinculados a esa cuenta.</p>
+
+          <h2 id="es-conserva">Datos que pueden conservarse</h2>
+          <ul>
+            <li>Las copias de seguridad y los registros de seguridad permanecen un tiempo limitado y después se sobrescriben.</li>
+            <li>Los datos que ya hayan llegado a Google AdMob, Firebase Analytics o Firebase Crashlytics siguen los plazos de conservación de Google. S3AM Perú no los borra dentro de los sistemas de Google.</li>
+            <li>Un registro puede conservarse más tiempo cuando la ley lo exige, por ejemplo para responder un reclamo.</li>
+          </ul>
+          <p>Desinstalar SmartHaul solo borra la copia local del teléfono. No elimina la cuenta en los servidores.</p>
+          <p>Si quiere borrar una simulación y conservar la cuenta, use <a href="delete-data.html">Eliminar datos de SmartHaul</a>.</p>
+        </div>
+
+        <div class="prose en-only" lang="en">
+          <p>This page explains how to ask S3AM Perú to delete your SmartHaul account and the data associated with it. Deletion cannot be undone.</p>
+
+          <h2 id="en-steps">Steps in the application</h2>
+          <ol class="steps">
+            <li>Open SmartHaul and sign in with your email and password.</li>
+            <li>Open the Settings tab.</li>
+            <li>Tap Delete account.</li>
+            <li>Read the notice and confirm. The account is deleted at that moment.</li>
+          </ol>
+
+          <h2 id="en-email">If you cannot open the application</h2>
+          <p>Email <a href="mailto:s3amsac@gmail.com?subject=Delete%20SmartHaul%20account">s3amsac@gmail.com</a> from the account's email address. Use the subject «Delete SmartHaul account» and include the email you registered with. S3AM Perú may ask for your name, last name and date of birth to confirm that the account is yours before deleting it.</p>
+
+          <h2 id="en-deleted">Data that is deleted</h2>
+          <ul>
+            <li>The profile: email, first name, last name and date of birth.</li>
+            <li>The password and the session stored on the device.</li>
+            <li>The simulation history: material, truck type, distance, speeds, shift, efficiency, loader performance and, if you entered them, project name, section and hourly rates, together with the result.</li>
+          </ul>
+          <p>Your login is an S3AM account. If you use that same account in another S3AM application, deleting it in SmartHaul can also remove access to those applications and the data tied to that account.</p>
+
+          <h2 id="en-kept">Data that may be kept</h2>
+          <ul>
+            <li>Backups and security logs remain for a limited time and are then overwritten.</li>
+            <li>Data already sent to Google AdMob, Firebase Analytics or Firebase Crashlytics follows Google's retention periods. S3AM Perú does not delete it inside Google's systems.</li>
+            <li>A record may be kept longer when the law requires it, for example to answer a legal claim.</li>
+          </ul>
+          <p>Uninstalling SmartHaul only removes the local copy on the phone. It does not delete the account on the servers.</p>
+          <p>To delete one simulation and keep the account, use <a href="delete-data.html">Delete SmartHaul data</a>.</p>
+        </div>
+
+        <aside class="related">
+          <p>
+            <span class="es-only">La política de privacidad describe el resto de los datos que recoge SmartHaul.</span>
+            <span class="en-only">The privacy policy describes the rest of the data SmartHaul collects.</span>
+          </p>
+          <a class="button button-secondary" href="privacy.html">
+            <span class="es-only">Política de privacidad</span>
+            <span class="en-only">Privacy policy</span>
+          </a>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">SmartHaul</div>
+          <p class="fine-print">
+            <span class="es-only">Aplicación de S3AM Perú.</span>
+            <span class="en-only">An application by S3AM Perú.</span>
+          </p>
+        </div>
+        <nav class="footer-links" data-label-es="Documentos" data-label-en="Documents" aria-label="Documentos">
+          <a href="privacy.html"><span class="es-only">Política de privacidad</span><span class="en-only">Privacy policy</span></a>
+          <a href="terms.html"><span class="es-only">Términos y condiciones</span><span class="en-only">Terms and conditions</span></a>
+          <a href="delete-account.html"><span class="es-only">Eliminar cuenta</span><span class="en-only">Delete account</span></a>
+          <a href="delete-data.html"><span class="es-only">Eliminar datos</span><span class="en-only">Delete data</span></a>
+          <a href="mailto:s3amsac@gmail.com">s3amsac@gmail.com</a>
+        </nav>
+      </div>
+      <p class="copyright">
+        <span class="es-only">Textos vigentes desde el 8 de noviembre de 2026.</span>
+        <span class="en-only">Texts effective November 8, 2026.</span>
+        © 2026 S3AM Perú
+      </p>
+    </div>
+  </footer>
+  <script src="js/site.js"></script>
+</body>
+</html>
